@@ -14,12 +14,20 @@ const userSchema = new Schema(
       trim: true,
       index: true,
     },
+    fullName: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
       lowercase: true,
       unique: true,
       trim: true,
+    },
+    role: {
+      type: String,
+      required: true,
     },
     profileImg: {
       type: String,
@@ -32,14 +40,6 @@ const userSchema = new Schema(
     watchHistory: {
       type: Schema.Types.ObjectId,
       ref: "Video",
-    },
-    coursesTaken: {
-      type: Schema.Types.ObjectId,
-      ref: "Course",
-    },
-    coursesCreated: {
-      type: Schema.Types.ObjectId,
-      ref: "Course",
     },
     password: {
       type: String,

@@ -6,6 +6,10 @@ const videoSchema = new Schema(
       type: String,
       required: true,
     },
+    videoUrl: {
+      type: String,
+      required: true,
+    },
     duration: {
       type: Date,
       required: true,
@@ -22,8 +26,12 @@ const videoSchema = new Schema(
       trim: true,
       index: true,
     },
+    partOf: {
+      type: Schema.Types.ObjectId,
+      ref: "Course",
+    },
   },
   { timestamps: true }
 );
 
-export const Video = mongoose.model("Video", courseSchema);
+export const Video = mongoose.model("Video", videoSchema);
